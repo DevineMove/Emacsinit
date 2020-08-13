@@ -289,3 +289,178 @@ li.sort(key=lambda x:x[1])
 print(li)  # [[1, 3], [5, 4], [2, 6]]
 
 *** Example 2
+# sort a matrix, by 2nd column, reverse order
+
+li = [[2,6],[1,3],[5,4]]
+
+li.sort(key=lambda x:x[1], reverse=True)
+
+print(li);
+# prints [[2, 6], [5, 4], [1, 3]]
+
+* Dictionary Method
+** Get, set, delete, check existence, get all keys/values 
+| Syntax     | Meaning                                                                          |
+| d[k]       | return the value of key k if exist, else KeyError.                               |
+| d.get(k)   | return the value of key k if exist, else return None                             |
+| d.get(k,v) | return the value of key k if exist, else return v.                               |
+| d[k]= v    | Set a value v                                                                    |
+| del d[k]   | Remove the value of key k if exist, else KeyError.                               |
+| k in d     | eturn True if d has a key k, else False                                          |
+| k not in d | The opposite of in                                                               |
+| d.keys()   | return a iterator that's all key's values. (each element is a new copy)          |
+| d.values() | return a iterator that's all key's values. (each element is a new copy)          |
+| d.items()  | eturn a iterator of 2-tuples, each is (key, value). (each element is a new copy) |
+
+
+*** Example 1
+# get value of given key
+
+hh = {"a":1, "b":2}
+
+print(hh.get("b")) # 2
+
+print(hh.get("x")) # None
+
+print(hh.get("x", 8)) # 8
+
+*** Example 2
+dd = {"a":1, "b":2, "c":3}
+
+kk = dd.keys()
+print(kk)
+# dict_keys(['a', 'b', 'c'])
+
+vv = dd.values()
+print(vv)
+# dict_values([1, 2, 3])
+
+tt = dd.items()
+print(tt)
+# dict_items([('a', 1), ('b', 2), ('c', 3)])
+
+print(type(kk))
+# <class 'dict_keys'>
+
+print(type(vv))
+# <class 'dict_values'>
+
+print(type(tt))
+# <class 'dict_items'>
+
+** Pop, update, set value, update
+| Syntax            | Meaning                                                                                                                                                                                                                        |
+| d.pop(k)          | Remove and return its value if key k exist, else KeyError.                                                                                                                                                                     |
+| d.pop(k,v)        | Remove and return its value if key k exist, else v.                                                                                                                                                                            |
+| d.popitem()       | Remove and return arbitrary (key, value) pair. If d is empty, KeyError.                                                                                                                                                        |
+| d.setdefault(k)   | if key k exist, return its value, else, add key with a value of None.                                                                                                                                                          |
+| d.setdefault(k,v) | If key k exist, return its value, else, insert key with a value of v                                                                                                                                                           |
+| d.update(v)       | Update the dictionary with the key/value pairs from v, overwriting existing keys. Return None. v can be a dictionary or iterable (list, tuple) where each element is iterable of length 2, or can be a key1=val1, key2=val2, … |
+
+*** Example 
+# example of ‹dict›.update(…)
+
+aa = {"a":1}
+
+aa.update( [ [3,4], ("a", 2) ] )
+print(aa)
+# {'a': 2, 3: 4}
+
+aa.update([(5,6), (7,8)])
+print(aa)
+# {'a': 2, 3: 4, 5: 6, 7: 8}
+
+aa.update(aa=8, bb=9)
+print(aa)
+# {'a': 2, 3: 4, 5: 6, 7: 8, 'aa': 8, 'bb': 9}
+
+** Clear, copy
+| Syntax             | Meaning                                                                                       |
+| d.clear()          | Remove all items                                                                              |
+| d.copy()           | return a shallow copy of d                                                                    |
+| d.fromkeys(seq)    | return a new dictionary with keys from sequence seq (list or tuple). The values are all None. |
+| d.fromkeys(seq, v) | return a new dictionary with keys from sequence seq. The values are all ‹›.                   |
+
+*** Example
+# example of ‹dictionary›.fromkeys(…)
+
+hh = {"a":1, "b":2, "c":3}
+
+h2 = hh.fromkeys([8,9,10])
+print(h2)
+# {8: None, 9: None, 10: None}
+
+h3 = hh.fromkeys([8,9,10],"x")
+print(h3)
+# {8: 'x', 9: 'x', 10: 'x'}
+
+print(hh)
+# {'a': 1, 'b': 2, 'c': 3}
+
+*** Exmaple of using Zip
+# convert 2 lists into a dictionary, use zip()
+
+aa = [1, 2, 3]
+bb = ["a", "b", "c"]
+
+print(dict(zip(aa, bb)))
+# {1: 'a', 2: 'b', 3: 'c'}
+
+*** Example of using Zip 2
+# example of using zip()
+
+aa = [1, 2, 3, 4]
+bb = ["a", "b", "c", "d"]
+cc = [10, 20, 30, 40]
+
+print(zip(aa, bb, cc))
+# <zip object at 0x106f40b88>
+
+print( list(zip(aa, bb, cc)) )
+# [(1, 'a', 10), (2, 'b', 20), (3, 'c', 30), (4, 'd', 40)]
+
+* Define a function
+** Example 1 
+# unspecified number of keyword args
+def ff(**dd):
+    return dd
+
+rr = ff( z = 8, c = 7, aa = 4, b = 3)
+
+print(rr)
+# {'z': 8, 'c': 7, 'aa': 4, 'b': 3}
+
+print(type(rr))
+# <class 'dict'>
+
+** Example 2  
+def ff(a, b=1, c=1, **xyz):
+    # xyz is a dictionary
+    print("a is: ", a)
+    print("b is: ", b)
+    print("c is: ", c)
+    print("xyz is: ", xyz)
+
+# note, no b
+ff(3, rabbit = 7, cat = "a", tiger = 33, c = 8)
+
+# a is:  3
+# b is:  1
+# c is:  8
+# xyz is:  {'rabbit': 7, 'cat': 'a', 'tiger': 33}
+
+** Example 3
+def ff(a, *mmm, **zzz):
+    # mmm is a tuple
+    # zzz is a dictionary
+    print("a is:", a)
+    print("mmm is:", mmm)
+    print("zzz is:", zzz)
+
+ff(3, 4, 5, 6, rabbit = 7, cat = 9, tiger = 33)
+
+# a is: 3
+# mmm is: (4, 5, 6)
+# zzz is: {'rabbit': 7, 'cat': 9, 'tiger': 33}
+
+

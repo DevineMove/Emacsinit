@@ -9,6 +9,8 @@
   (load-theme 'tango-dark)
   (electric-pair-mode t)
   (auto-fill-mode t)
+  (setq beacon-push-mark 35)
+  (setq beacon-color "#666600")
 #+end_src
 
 * Global-set-key
@@ -26,7 +28,7 @@
 #+BEGIN_SRC emacs-lisp
   (defun open-work-file()
     (interactive)
-    (find-file "c:/Emacs/StAlbans.org"))
+    (find-file "c:/Emacs/.emacs.d/StAlbans.org"))
 
   (global-set-key (kbd "C-x C-]") 'open-work-file)
   
@@ -101,6 +103,14 @@
     :ensure t
     :pin melpa
     :commands (esup))
+
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (use-package beacon
+    :ensure t
+    :config
+    (beacon-mode ))
 
 #+END_SRC
 
