@@ -1,0 +1,291 @@
+* Import 
+** Import sys
+   import sys
+   print(sys.version)
+   This prints out version of the python currently using
+** Import os
+   print(os.getcwd(e))
+   This prints out current work directory path
+** Import os.path
+   print 
+
+* Search Substring
+** str.startswith(prefix,start,end) 
+   Return True if string starts with the prefix, else False. prefix can be a tuple, each element is a string. Optional start, end limits the range of positions to check.
+** str.endswith(suffix, start, end) 
+   similar to “startwith”, but check the end.
+** str.find(substr,start,end) 
+   Return index of the first occurrence of substr. Return -1 if substr is not found.
+** str.rfind(substr,start,end)
+   similar to “find”, but start at right.
+** str.index(substr,start,end)   
+   similar to “find”, but raise ValueError when the substring is not found.
+** str.rindex(substr,start,end)  
+   similar to “index” but start from right.
+** str.count(substr,start,end)   
+   Return the number of non-overlapping occurrences of substring substr.
+
+* Find/Replace
+** str.replace("old", "new" , count)   
+   replace occurrences of substring. Only first count number of time is done. count is optional.
+
+* Trim String
+** str.strip("chars")   
+   remove any char in chars at the leading/trailing ends of the string. The "chars" is a string specifying the set of characters to be removed, defaults to whitespace.
+** str.rstrip("chars")   
+   same as “strip”, but only do trailing end.
+** str.lstrip("chars")   
+   same as “strip”, but only do beginning end.
+
+* String/List Conversion
+** str.join(iterable)   
+   Change a {list, tuple} into a string, by concatenating elements, and use str as separator.
+** str.split("sep",maxsplit)   
+   Return a list. Split string using "sep" as the delimiter. If maxsplit is given, at most maxsplit splits are done (result list will have at most maxsplit+1 elements). If sep is given, consecutive delimiters are not grouped together and are deemed to delimit empty strings (for example, '1,,2'.split(',') returns ['1', '', '2']). The sep argument may consist of multiple characters (for example, '1<>2<>3'.split('<>') returns ['1', '2', '3']). Splitting an empty string with a specified separator returns ['']. If sep is not specified or is None, a different splitting algorithm is applied: runs of consecutive whitespace are regarded as a single separator, and the result will contain no empty strings at the start or end if the string has leading or trailing whitespace. Consequently, splitting an empty string or a string consisting of just whitespace with a None separator returns []. For example, ' 1  2   3  '.split() returns ['1', '2', '3'], and '  1  2   3  '.split(None, 1) returns ['1', '2   3  '].
+** str.rsplit(sep, maxsplit)   
+   same as “split” but begin at right.
+** str.splitlines(keepends)   
+   Return a list of the lines in the string, breaking at line boundaries. This method uses the universal newlines approach to splitting lines. Line breaks are not included in the resulting list unless keepends is given and true. For example, 'ab c\n\nde fg\rkl\r\n'.splitlines() returns ['ab c', '', 'de fg', 'kl'], while the same call with splitlines(True) returns ['ab c\n', '\n', 'de fg\r', 'kl\r\n']. Unlike split() when a delimiter string sep is given, this method returns an empty list for the empty string, and a terminal line break does not result in an extra line.
+** str.partition(sep)   
+   Split the string at the first occurrence of sep, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator. If the separator is not found, return a 3-tuple containing the string itself, followed by two empty strings.
+** str.rpartition(sep)   
+   same as “partition” but begin at right.
+
+* Check Character Case, Character Class
+** str.isalnum()
+   Return True if all characters are alphanumeric and there is at least one character, else False.
+** str.isalpha()  
+** str.isdigit()   
+** str.isupper()   
+** str.islower()   
+** str.isspace()   
+   check whitespace characters.
+** str.istitle()  
+   true if every word start with cap letter.
+** unicode.isnumeric()   
+   Return True if there are only numeric characters in S, False
+ otherwise. Numeric characters include digit characters, and all
+ characters that have the Unicode numeric value property, e.g. U+2155,
+ VULGAR FRACTION ONE FIFTH.
+** unicode.isdecimal()   
+   Return True if there are only decimal characters in S, False otherwise. Decimal characters include digit characters, and all characters that can be used to form decimal-radix numbers, e.g. U+0660, ARABIC-INDIC DIGIT ZERO.
+** str.translate(table[, deletechars])   
+   Return a copy of the string where all characters occurring in the optional argument deletechars are removed, and the remaining characters have been mapped through the given translation table, which must be a string of length 256. You can use the maketrans() helper function in the string module to create a translation table. For string objects, set the table argument to None for translations that only delete characters:
+
+* Letter Case Conversion
+** str.capitalize()   
+   capitalize the first character
+** str.upper()   
+   change to uppercase.
+** str.lower()   
+   change to lowercase.
+** str.swapcase()   
+   switch uppercase/lowercase.
+** str.title()  
+   make each word's first letter uppercase.
+
+* Formatting Related Methods
+** str.format(…)  
+   formatting the string. (replace parts with arguments) [see Python: Format String].
+** str.center(n) 
+   add space to begin and end of string, so it's centered with respect to n chars.
+** str.center(n,"char")  
+   fill it with character char
+** str.ljust(width, "fillchar")  
+   Add fillchar to the end of string, so total length is width. fillchar defaults to space. The original string is returned if width is less than or equal to given string length.
+** str.rjust(width, "fillchar")  
+   same as “ljust” but done pads on the left.
+** str.zfill(width)  
+   Return the numeric string left filled with zeros in a string of length width. A sign prefix is handled correctly. The original string is returned if width is less than or equal length.
+** str.expandtabs()  
+   replace tab char by space.
+** str.expandtabs(tabsize)  
+
+* Boolean Operator 
+| Purpose          | Syntax     |
+|------------------+------------|
+| Not              | not a      |
+| equal            | a ==b      |
+| not equal        | a ! = b    |
+| less than        | a < b      |
+| less equal       | a < = b    |
+| greater          | a > b      |
+| greater equal    | a > = b    |
+| same object      | a is b     |
+| not same obbject | a is not b |
+
+* Bit Operators
+| Purpose     | Syntax |
+|-------------+--------|
+| and         | a & b  |
+| or          | a 1 b  |
+| xor         | a ^ b  |
+| invert      | ~a     |
+| Right Shift | a >> b |
+| Left  Shift | a << b |
+
+* Enumerate 
+** Example 
+   bb = ['one', 'two', 'three', 'infinity']
+   for ii, vv in enumerate(bb):
+    print(ii, vv)
+    """ Print below
+	# 0 one
+	# 1 two
+	# 2 three
+	# 3 infinity
+	"""
+* Map Function 
+** map(f, list) 
+   Applies function f to all elements in list. Return a iterator of
+   the result. (does not modify the original list)
+*** ExAMPLLE 
+    def ff(nn):
+    return nn+1
+
+    bb = map(ff, [1,2,3,4])
+    print(bb)
+    # <map object at 0x10ad77cf8>
+
+    print( list(bb) )
+    # [2, 3, 4, 5]
+* Filter 
+** filter(f, list) 
+   Return a new iterator, such that f(element) returns True.
+*** Example 
+    def ff(n): return n % 2 == 0
+    aa = range(11)
+    bb = filter( ff, aa)
+    print(list(bb))
+* id(obj)
+aa = [3, 4, 5]
+bb = aa
+
+print(id(aa))
+# 4477411144
+
+print(id(aa) == id(bb))
+# True
+
+* Ways of copying list (Note: id(obj) is not the same)
+
+** Copy using Extend
+list_a = [3, 4, 5]
+list_b = []
+list_b.extend(list_a)
+
+print(id(list_a) == id(list_b))
+# False
+
+print(list_a == list_b)
+# True
+
+** Copy list()
+list_a = [3, 4, 5]
+list_b = list(list_a)
+
+print(id(list_a) == id(list_b))
+# False
+
+print(list_a == list_b)
+# True
+
+** Using Module "copy", "deepcopy"
+import copy
+
+list_a = [[3, 4], [5, 6, [7, 8]]]
+list_b = copy.deepcopy(list_a)
+
+list_a[0][1] = 9
+
+print(list_a)
+# [[3, 9], [5, 6, [7, 8]]]
+
+print(list_b)
+# [[3, 4], [5, 6, [7, 8]]]
+
+*** Shallow Copy 
+    lst.slice, list.extend, list() is all shallow copy 
+
+**** Example 1
+# example of shallow copy. Changing a nested element still effect the original list
+
+aa = [[3, 6], [5, [8]]]
+bb = list(aa)
+
+aa[0][1] = 9
+
+print(aa)
+# [[3, 9], [5, [8]]]
+
+print(bb)
+# [[3, 9], [5, [8]]]
+
+** List comprehension : [expression for var in list]
+   where expression is evaluated with var replaced by each element in
+   list.
+
+*** Example 1
+# generate a list
+li = [ i+1 for i in [1,2,3] ]
+print(li)
+# [2, 3, 4]
+
+*** Example 2
+# build a list of tuples
+li = [ (i,i*2) for i in range(1,5)]
+print(li)
+# [(1, 2), (2, 4), (3, 6), (4, 8)]
+
+*** Example 3
+# Iteration part can be nexted
+xx = [ (i,j) for i in range(1,6) for j in range(1,4) ]
+print(xx)
+
+# output
+# [
+#  (1, 1), (1, 2), (1, 3),
+#  (2, 1), (2, 2), (2, 3),
+#  (3, 1), (3, 2), (3, 3),
+#  (4, 1), (4, 2), (4, 3),
+#  (5, 1), (5, 2), (5, 3)
+# ]
+
+* List Method
+| Syntax             | Meaning                                                                                        |
+| Lst[i]=v           | set ith element to v                                                                           |
+| lst[i]= lst2       | replace i to j elments by the cotents of the lst2                                              |
+| del lst[i]         | remove ith element                                                                             |
+| del lst[i:j]       | removve the elements between i to j (not including j)                                          |
+| del lst[i:j:k]     | remove the elements between i to j (not including j), with step k.                             |
+| lst.pop()          | remove last element and return it.                                                             |
+| lst.pop(i)         | remove ith element and return it. Same as v = lst[i]; del lst[i]; return v                     |
+| lst.append(v)      | append v to the end. Same as lst[len(lst):len(lst)] = [v]                                      |
+| lst.extend(v)      | append v to the end, but flatten v one level if its a list. Same as lst[len(lst):len(lst)] = v |
+| lst.insert(i, v)   | insert at i. Same as lst[i:i] = [v]                                                            |
+| lst.index(v)       | return the index of first occurrence of v. Error if v is not in lst.                           |
+| lst.index(v, i)    | start at index i                                                                               |
+| lst.index(v, i, j) | end at index j, not including j                                                                |
+| lst.count(v)       | return the number of occurrences of v                                                          |
+| lst.remove(v)      | remove first occurrence of v. Error if v is not in lst. Same as del lst[lst.index(v)]          |
+
+* Sort Method
+| Syntax          | Meaning                                                                                                                 |
+| lst.reverse()   | reverses the items of lst in place.                                                                                     |
+| lst.sort()      | sort the items of lst in place                                                                                          |
+| lst.sort(f)     | using predicate function f to sort. f takes 2 args, and return {1, 0, -1}, but any int works. The sign indicates order. |
+| lst.sort(key=f) | sort using f to extract a “key”. f takes 1 arg. Result is compared using cmp().                                         |
+|                 |                                                                                                                         |
+
+*** Example 1
+# python 3
+
+# sort a matrix by 2nd column
+
+li = [[2,6],[1,3],[5,4]]
+
+li.sort(key=lambda x:x[1])
+
+print(li)  # [[1, 3], [5, 4], [2, 6]]
+
+*** Example 2
